@@ -1,25 +1,27 @@
-fun main(args: Array<String>) {
-    val test: String = "Yes"
+fun main() {
+    val test = "Qux"
 
     try {
         println("Start try")
         riskyCode(test)
         println("End try")
     } catch (e: BadException) {
-        println("Bad Exception")
+        println("Caught Bad Exception")
     } finally {
-        println("finally")
+        println("can I find out, if and which exception was caught?")
     }
     println("End of main()")
 }
 
-class BadException: Exception()
+class BadException : Exception()
 
 fun riskyCode(test: String) {
     println("Start risky code")
 
     if (test == "Yes") {
         throw BadException()
+    } else {
+        println("nothing bad happens...")
     }
     println("End risky code")
 }
